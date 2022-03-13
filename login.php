@@ -13,7 +13,11 @@ if((isset($_POST['email'])) && isset($_POST['senha'])){
   $resultado = mysqli_fetch_assoc($resultado_usuario);
 
   if(isset($resultado)){
-    echo "Logado";
+    $_SESSION['id_usuario'] = $resultado['id'];
+    $_SESSION['nome_usuario'] = $resultado['nome'];
+    $_SESSION['email_usuario'] = $resultado['email'];
+    
+    header("Location: painel_adm.php");
   }else{
     $_SESSION['loginErro'] = "Usuário ou senha inválido";
     header("Location: index.php");
