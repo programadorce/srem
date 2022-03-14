@@ -6,13 +6,15 @@ include_once("conexao.php");
 
 $nomeEquipamento = $_POST['nomeEquipamento'];
 
-$sql = "INSERT INTO equipamento (nome) VALUES ('$nomeEquipamento')";
+if(!$nomeEquipamento == ""){
+  $sql = "INSERT INTO equipamento (nome) VALUES ('$nomeEquipamento')";
 
 if(mysqli_query($conexao,$sql)){
-  $_SESSION['cadastroSucesso'] = "Equipamento cadastrado com sucesso!!!";
+  $_SESSION['cadastroSucesso'] = "Equipamento Salvo com sucesso!!!";
   header("Location: cadastro_equipamento.php");
-}else{
-  $_SESSION['cadastroError'] = "Equipamento cadastrado com sucesso!!!";
+}
+} else{
+  $_SESSION['cadastroErro'] = "Todos os campos devem ser preenchidos";
   header("Location: cadastro_equipamento.php");
 }
 

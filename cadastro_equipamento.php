@@ -338,18 +338,17 @@ if (!$_SESSION['id_usuario']) {
         <div class="mb-3">
           <p class="text-center text-danger">
             <?php
-            if (isset($_SESSION['cadastroSucesso'])) {
-              echo $_SESSION['cadastroSucesso'];
-              unset($_SESSION['cadastroSucesso']);
-              
+            if (isset($_SESSION['cadastroErro'])) {
+              echo $_SESSION['cadastroErro'];
+              unset($_SESSION['cadastroErro']);
             }
             ?>
           </p>
-          <p class="text-center text-danger">
+          <p class="text-center text-success">
             <?php
-            if (isset($_SESSION['cadastroError'])) {
-              echo $_SESSION['cadastroError'];
-              unset($_SESSION['cadastroError']);
+            if (isset($_SESSION['cadastroSucesso'])) {
+              echo $_SESSION['cadastroSucesso'];
+              unset($_SESSION['cadastroSucesso']);
             }
             ?>
           </p>
@@ -358,7 +357,7 @@ if (!$_SESSION['id_usuario']) {
               <h1 class="h4 mb-0 text-gray-800">Cadastro de Equipamentos</h1>
             </div>
             <label for="nomeEquipamento" class="form-label mb-2">Nome do Equipamento</label>
-            <input type="text" class="form-control" name="nomeEquipamento" id="nomeEquipamento" placeholder="Data Show" required>
+            <input type="text" class="form-control" name="nomeEquipamento" id="nomeEquipamento" placeholder="Data Show">
             <input type="submit" class="form-control mt-3 btn btn-primary" name="enviar" id="enviar" value="Enviar">
           </form>
         </div>
